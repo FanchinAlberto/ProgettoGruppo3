@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="datatable.css">
+
+<script>
+
+
+
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").fadeToggle("slow");
+    
+  });
+});
+
+</script>
+
+</head>
+<body>
+    <div id="flip">
+    <p id="TitTable">CONOSCI GLI SVILUPPATORI</p> 
+
+    <table id="panel" >
+        <thead>
+            <tr >
+                <th ></th>
+                <th>nome</th>
+                <th>cognome</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="1665127913117.jpg" alt=""></td>
+                <td>Alessandro</td>
+                <td>Dandea</td>
+                <td>dandeaale@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Mohan</td>
+                <td>32</td>
+                <td>Male</td>
+                <td>Teacher</td>
+            </tr>
+
+            <tr>
+                <td>Mohan</td>
+                <td>32</td>
+                <td>Male</td>
+                <td>Teacher</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
