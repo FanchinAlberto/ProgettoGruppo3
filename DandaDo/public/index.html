@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DandaDo</title>
+  <link rel="stylesheet" href="dist/styles.css" />
+  <script src="dist/script.js"></script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="fixed flex justify-between py-6 w-full lg:px-48 md:px-12 px-4 content-center bg-white z-10">
+    <div class="flex items-center">
+      <img src='dist/assets/Logo_black.svg' alt="Logo" class="h-4" />
+    </div>
+    <div class="justify-center gap-0">
+      <input type="text" class="bg-white border-2 border-black rounded-l-lg py-2 right-0">
+      <button class="bg-white border-black border-2 rounded-r-lg py-2 left-0">5</button>
+    </div>
+    <div class="font-montserrat hidden md:block">
+      <button class="mr-6">Log in</button>
+      <button class="py-2 px-4 text-white bg-black rounded-3xl">
+        Sign up
+      </button>
+    </div>
+    <div id="showMenu" class="md:hidden">
+      <img src='dist/assets/logos/Menu.svg' alt="Menu icon" />
+    </div>
+  </nav>
+  <div id='mobileNav' class="hidden px-4 py-6 fixed top-0 left-0 h-full w-full bg-white z-20 animate-fade-in-down">
+    <div id="hideMenu" class="flex justify-end">
+      <img src='dist/assets/logos/Cross.svg' alt="" class="h-16 w-16" />
+    </div>
+    <ul class="font-montserrat flex flex-col mx-8 my-24 items-center text-3xl">
+      <li class="my-6 growing-underline" >
+        <a href="howitworks">Group</a>
+      </li>
+      <li class="my-6 growing-underline">
+        <a href="features">Chrono</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Pricing -->
+  <section class="sectionSize bg-white py-0">
+    <div>
+      <h2 class="secondaryTitle bg-underline4 mb-0 bg-100%">Pricing</h2>
+    </div>
+    <div class="flex w-full flex-col md:flex-row">
+
+      <div class='flex-1 flex flex-col mx-6 shadow-2xl relative bg-white rounded-2xl py-5 px-8 my-8 md:top-12 space-y-3'>
+        <h3 class="font-pt-serif font-normal text-2xl mb-4">
+          To Do
+        </h3>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-center">
+          <p>Benefit #1</p>
+        </div>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-center">
+          <p>Benefit #2</p>
+        </div>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-center">
+          <p>Benefit #3</p>
+        </div>
+
+        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4">
+          Add
+        </button>
+      </div>
+
+      <div class='flex-1 flex flex-col mx-6 shadow-2xl relative bg-white rounded-2xl py-5 px-8 my-8 md:top-12 space-y-3'>
+        <h3 class="font-pt-serif font-normal text-2xl mb-4">
+          Doing
+        </h3>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-center">
+          <p>Benefit #1</p>
+        </div>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-center">
+          <p>Benefit #2</p>
+        </div>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-center">
+          <p>Benefit #3</p>
+        </div>
+
+        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4">
+          Add
+        </button>
+      </div>
+
+      <div class='flex-1 flex flex-col mx-6 shadow-2xl relative bg-white rounded-2xl py-5 px-8 my-8 md:top-12 space-y-3'>
+        <h3 class="font-pt-serif font-normal text-2xl mb-4">
+          Done
+        </h3>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-center">
+          
+          <p>Benefit #1</p>
+        </div>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-center">
+          <p>Benefit #2</p>
+        </div>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-center">
+          <p>Benefit #3</p>
+        </div>
+
+        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4">
+          Add
+        </button>
+      </div>
+
+    </div>
+  </section>
+</body>
+
+</html>
