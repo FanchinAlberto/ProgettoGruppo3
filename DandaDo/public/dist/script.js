@@ -1,5 +1,11 @@
+//manipolazione dati api
+fetch('https://dummyjson.com/todos')
+.then(res => res.json())
+.then(console.log);
+
+
+//animazione burger-menu
 window.addEventListener("load", function () {
-  console.log(document.querySelector("#showMenu"));
   document
     .querySelector("#showMenu")
     .addEventListener("click", function (event) {
@@ -14,7 +20,6 @@ window.addEventListener("load", function () {
 
   document.querySelectorAll("[toggleElement]").forEach((toggle) => {
     toggle.addEventListener("click", function (event) {
-      console.log(toggle);
       const answerElement = toggle.querySelector("[answer]");
       const caretElement = toggle.querySelector("img");
       console.log(answerElement);
@@ -28,3 +33,4 @@ window.addEventListener("load", function () {
     });
   });
 });
+
