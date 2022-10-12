@@ -1,5 +1,4 @@
-
-
+//moveToDiv("done1", "doing", "DoingAddButton");
 //manipolazione dati api
 function fetchRandom(pid) {
 let currentP = document.getElementById(pid);
@@ -10,6 +9,17 @@ fetch('https://dummyjson.com/todos/random')
 }
 );
 }
+
+//spostamento dei todo nei container
+function moveToDiv(divToMoveId, destinationId, buttonID) {
+  let divToMove = document.getElementById(divToMoveId);
+  let button = document.getElementById(buttonID);
+  divToMove.remove();
+  button.remove();
+  document.getElementById(destinationId).appendChild(divToMove);
+  document.getElementById(destinationId).appendChild(button);
+}
+
 
 //animazione burger-menu
 window.addEventListener("load", function () {
