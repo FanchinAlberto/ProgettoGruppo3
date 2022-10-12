@@ -7,6 +7,8 @@
   <title>DandaDo</title>
   <link rel="stylesheet" href="dist/styles.css" />
   <script src="dist/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 </head>
 
 <body>
@@ -214,7 +216,7 @@
             </div> 
         </div>
         <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma">
-          <p>Benefit #2</p>
+          <p>Memorize the fifty states and their capitals</p>
           <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -259,6 +261,79 @@
 
     </div>
   </section>
+
+  
+  <script>
+    $(document).ready(function () {
+  $('#panel').DataTable();
+});
+
+$(document).ready(function(){
+$("#TitTable").click(function(){
+$("#panel").fadeToggle("slow");
+
+});
+});
+
+
+$(document).ready(function(){
+$("#TitTable").click(function(){
+$("#panel_filter").fadeToggle("slow");
+
+});
+});
+
+$(document).ready(function(){
+$("#panel_paginate").remove();
+});
+
+$(document).ready(function(){
+$("#panel_info").remove();
+});
+
+$(document).ready(function(){
+$("#panel_length").remove();
+});
+  </script>
+  <div id="flip">
+    <p id="TitTable">KNOW THE DEVELOPERS</p> 
+    <div id="flop">
+    <table id="panel" >
+        <thead>
+            <tr >
+                <th ></th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="dist/assets/Dande.jpg" class="table_img"></td>
+                <td>Alessandro</td>
+                <td>Dandea</td>
+                <td>6190118@itisrossi.vi.it</td>
+            </tr>
+            <tr>
+                <td><img src="dist/assets/Ale.jpeg" class="table_img"></td>
+                <td>Alessandro</td>
+                <td>Michelazzo</td>
+                <td>6189984@itisrossi.vi.it</td>
+            </tr>
+
+            <tr>
+                <td><img src="dist/assets/Fanc.jpeg" class="table_img"></td>
+                <td>Alberto</td>
+                <td>Fanchin</td>
+                <td>6190192@itisrossi.vi.it</td>
+            </tr>
+            
+        </tbody>
+    
+    </table>
+</div>
+</div>
+
 </body>
 
 </html>
