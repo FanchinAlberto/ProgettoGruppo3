@@ -11,6 +11,11 @@ fetch('https://dummyjson.com/todos/random')
 );
 }
 
+function removeDiv(id) {
+  let divToRemove = document.getElementById(id);
+  divToRemove.remove();
+}
+
 function assignToDo(){
   for(i = 1; i <= 3; i++){
     fetchRandom("todoText" + i);
