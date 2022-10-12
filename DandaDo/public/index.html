@@ -112,7 +112,7 @@
             </div> 
         </div>
 
-        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4" id="ToDoAddButton">
+        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4" id="ToDoAddButton" onclick="showDiv1()">
           Add
         </button>
       </div>
@@ -137,7 +137,7 @@
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
                 <a onclick="moveToDiv('doing1', 'todo', 'ToDoAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
                 <a onclick="moveToDiv('doing1', 'done', 'DoneAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
-                <a class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a chronometer</span></a>
+                <a onclick="showTimerSetup()" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a timer</span></a>
                 <a onclick="removeDiv('doing1')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Remove</span></a>
               </div>
             </div> 
@@ -158,7 +158,7 @@
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
                 <a onclick="moveToDiv('doing2', 'todo', 'ToDoAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
                 <a onclick="moveToDiv('doing2', 'done', 'DoneAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
-                <a class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a chronometer</span></a>
+                <a onclick="showTimerSetup()" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a timer</span></a>
                 <a onclick="removeDiv('doing2')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Remove</span></a>
               </div>
             </div> 
@@ -179,13 +179,13 @@
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
                 <a onclick="moveToDiv('doing3', 'todo', 'ToDoAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
                 <a onclick="moveToDiv('doing3', 'done', 'DoneAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
-                <a class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a chronometer</span></a>
+                <a onclick="showTimerSetup()" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a timer</span></a>
                 <a onclick="removeDiv('doing3')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Remove</span></a>
               </div>
             </div> 
         </div>
 
-        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4" id="DoingAddButton">
+        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4" id="DoingAddButton" onclick="showDiv2()">
           Add
         </button>
       </div>
@@ -263,67 +263,52 @@
     </div>
   </section>
 
-  
-  <script>
-    $(document).ready(function () {
-  $('#panel').DataTable();
-});
+  <div  class="rounded-xl w-44 shadow-2xl hidden m-auto mt-10 border-2 border-solid border-black text-center" id="aggiuntaNewActivity">
+    <p>Add new activity</p>
+    <input type="text" id="inputModulo1" class="w-36 m-auto border-2 border-solid rounded-md border-black mt-2">
+    <button id="buttonModulo1" class="border-2 border-solid border-black rounded-md mt-3 shadow-2xl mb-2 p-2" onclick="addToDo()">Insert</button>
+</div>
 
-$(document).ready(function(){
-$("#TitTable").click(function(){
-$("#panel").fadeToggle("slow");
+<div class="rounded-xl w-44 shadow-2xl hidden m-auto mt-10 border-2 border-solid border-black text-center" id="aggiuntaOngoingActivity">
+    <p>Add ongoing activity</p>
+    <input type="text" id="inputModulo2" class="w-36 m-auto border-2 border-solid rounded-md border-black mt-2">
+    <button id="buttonModulo2" class="border-2 border-solid border-black rounded-md mt-3 shadow-2xl mb-2 p-2" onclick="addDoing()">Insert</button>
+</div>
 
-});
-});
+<div class="rounded-xl w-44 shadow-2xl hidden m-auto mt-10 border-2 border-solid border-black text-center" id="aggiuntaTimer">
+  <p>Insert timer duration (in minutes)</p>
+  <input type="text" id="inputTimer" class="w-36 m-auto border-2 border-solid rounded-md border-black mt-2">
+  <button id="buttonTimer" class="border-2 border-solid border-black rounded-md mt-3 shadow-2xl mb-2 p-2" onclick="setTimerSetup(); startTimer()">Insert</button>
+</div>
 
-
-$(document).ready(function(){
-$("#TitTable").click(function(){
-$("#panel_filter").fadeToggle("slow");
-
-});
-});
-
-$(document).ready(function(){
-$("#panel_paginate").remove();
-});
-
-$(document).ready(function(){
-$("#panel_info").remove();
-});
-
-$(document).ready(function(){
-$("#panel_length").remove();
-});
-  </script>
-  <div id="flip">
+  <div id="flip" class="bg-black rounded-xl m-auto w-1/2 text-center p-1 mt-12 text-2xl font-serif text-white">
     <p id="TitTable">KNOW THE DEVELOPERS</p> 
     <div id="flop">
-    <table id="panel" >
+    <table id="panel" class="bg-black rounded-xl m-auto w-1/2 text-center p-12 mt-5 hidden">
         <thead>
             <tr >
-                <th ></th>
-                <th>Nome</th>
-                <th>Cognome</th>
-                <th>E-mail</th>
+                <th class="p-8 text-center"></th>
+                <th class="p-8 text-center">Nome</th>
+                <th class="p-8 text-center">Cognome</th>
+                <th class="p-8 text-center">E-mail</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><img src="dist/assets/Dande.jpg" class="table_img"></td>
+                <td><img src="dist/assets/Dande.jpg" class="object-cover object-left w-24 rounded-full"></td>
                 <td>Alessandro</td>
                 <td>Dandea</td>
                 <td>6190118@itisrossi.vi.it</td>
             </tr>
             <tr>
-                <td><img src="dist/assets/Ale.jpeg" class="table_img"></td>
+                <td><img src="dist/assets/Ale.jpeg" class="object-cover object-left w-24 rounded-full"></td>
                 <td>Alessandro</td>
                 <td>Michelazzo</td>
                 <td>6189984@itisrossi.vi.it</td>
             </tr>
 
             <tr>
-                <td><img src="dist/assets/Fanc.jpeg" class="table_img"></td>
+                <td><img src="dist/assets/Fanc.jpeg" class="object-cover object-left w-24 rounded-full"></td>
                 <td>Alberto</td>
                 <td>Fanchin</td>
                 <td>6190192@itisrossi.vi.it</td>
@@ -334,7 +319,17 @@ $("#panel_length").remove();
     </table>
 </div>
 </div>
+<div class="border-2 border-solid border-black text-center w-32 hidden m-auto mt-10 rounded-xl" id="timerContainer"><p id="timer"></p></div>
+
+
 <script src="dist/script.js"></script>
+<footer class="footer footer-center  w-full p-4 bg-black text-white fixed bottom-0  ">
+  <div class="text-center">
+    <p>
+      Copyright © 2022 - DandaDo
+    </p>
+  </div>
+</footer>
 </body>
 
 </html>
