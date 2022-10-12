@@ -1,15 +1,23 @@
-//moveToDiv("done1", "doing", "DoingAddButton");
 //manipolazione dati api
+assignToDo();
+
 function fetchRandom(pid) {
 let currentP = document.getElementById(pid);
 fetch('https://dummyjson.com/todos/random')
 .then(res => res.json())
 .then(res => {
-  divProva.innerHTML = res.todo;
+  currentP.innerHTML = res.todo;
 }
 );
 }
 
+function assignToDo(){
+  for(i = 1; i <= 3; i++){
+    fetchRandom("todoText" + i);
+    fetchRandom("doingText" + i);
+    fetchRandom("doneText" + i);
+  }
+}
 //spostamento dei todo nei container
 function moveToDiv(divToMoveId, destinationId, buttonID) {
   let divToMove = document.getElementById(divToMoveId);

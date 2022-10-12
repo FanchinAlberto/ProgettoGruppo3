@@ -8,13 +8,14 @@
   <link rel="stylesheet" href="dist/styles.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<link rel="icon" type="image/x-icon" href="logo.jpeg">
 </head>
 
 <body>
   <!-- Navigation -->
   <nav class="fixed flex justify-between py-6 w-full lg:px-48 md:px-12 px-4 content-center bg-white z-10">
     <div class="flex items-center">
-      <img src='dist/assets/Logo_black.svg' alt="Logo" class="h-4" />
+      <img src='extendedLogo.png' alt="Logo" class="h-14" />
     </div>
     <div class="justify-center gap-0">
       <div class="pt-2 relative mx-auto text-gray-600">
@@ -32,10 +33,9 @@
       </div>
     </div>
     <div class="font-montserrat hidden md:block">
-      <button class="mr-6">Log in</button>
-      <button class="py-2 px-4 text-white bg-black rounded-3xl">
-        Sign up
-      </button>
+      <div class="py-2 px-4 text-white bg-black rounded-3xl" >
+          <a href="mappa.html" target="_blank">Where are we?</a>
+        </div> 
     </div>
     <div id="showMenu" class="md:hidden">
       <img src='dist/assets/logos/Menu.svg' alt="Menu icon" />
@@ -62,12 +62,12 @@
     </div>
     <div class="flex w-full flex-col md:flex-row">
 
-      <div class='flex-1 flex flex-col mx-6 shadow-2xl relative bg-white rounded-2xl py-5 px-8 my-8 md:top-12 space-y-3'>
+      <div class='flex-1 flex flex-col mx-6 shadow-2xl relative bg-white rounded-2xl py-5 px-8 my-8 md:top-12 space-y-3' id="todo">
         <h3 class="font-pt-serif font-normal text-2xl mb-4">
           To Do
         </h3>
-        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma">
-          <p>Benefit #1</p>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma" id="todo1">
+          <p id="todoText1"></p>
           <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -80,13 +80,13 @@
               <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
           
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
+                <a onclick="moveToDiv('todo1', 'doing', 'DoingAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Doing</span></a>
+                <a onclick="moveToDiv('todo1', 'done', 'DoneAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
               </div>
             </div> 
         </div>
-        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma">
-          <p>Benefit #2</p>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma" id="todo2">
+          <p id="todoText2"></p>
           <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -99,13 +99,13 @@
               <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
           
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
+                <a onclick="moveToDiv('todo2', 'doing', 'DoingAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Doing</span></a>
+                <a onclick="moveToDiv('todo2', 'done', 'DoneAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
               </div>
             </div> 
         </div>
-        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma">
-          <p>Benefit #3</p>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma" id="todo3">
+          <p id="todoText3"></p>
           <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -118,13 +118,13 @@
               <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
           
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
+                <a onclick="moveToDiv('todo3', 'doing', 'DoingAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Doing</span></a>
+                <a onclick="moveToDiv('todo3', 'done', 'DoneAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
               </div>
             </div> 
         </div>
 
-        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4">
+        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4" id="ToDoAddButton">
           Add
         </button>
       </div>
@@ -133,8 +133,8 @@
         <h3 class="font-pt-serif font-normal text-2xl mb-4">
           Doing
         </h3>
-        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between">
-        <p>Benefit #1</p>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between" id="doing1">
+        <p id="doingText1"></p>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -147,14 +147,14 @@
               <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
           
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a chronometer</span></a>
+                <a onclick="moveToDiv('doing1', 'todo', 'ToDoAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
+                <a onclick="moveToDiv('doing1', 'done', 'DoneAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
+                <a class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a chronometer</span></a>
               </div>
             </div> 
         </div>
-        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma">
-          <p>Benefit #2</p>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma" id="doing2">
+          <p id="doingText2"></p>
           <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -167,14 +167,14 @@
               <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
           
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a chronometer</span></a>
+                <a onclick="moveToDiv('doing2', 'todo', 'ToDoAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
+                <a onclick="moveToDiv('doing2', 'done', 'DoneAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
+                <a class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a chronometer</span></a>
               </div>
             </div> 
         </div>
-        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma">
-          <p>Benefit #3</p>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma" id="doing3">
+          <p id="doingText3"></p>
           <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -187,9 +187,9 @@
               <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
           
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a chronometer</span></a>
+                <a onclick="moveToDiv('doing3', 'todo', 'ToDoAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
+                <a onclick="moveToDiv('doing3', 'done', 'DoneAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Done</span></a>
+                <a class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Add a chronometer</span></a>
               </div>
             </div> 
         </div>
@@ -199,12 +199,12 @@
         </button>
       </div>
 
-      <div class='flex-1 flex flex-col mx-6 shadow-2xl relative bg-white rounded-2xl py-5 px-8 my-8 md:top-12 space-y-3'>
+      <div class='flex-1 flex flex-col mx-6 shadow-2xl relative bg-white rounded-2xl py-5 px-8 my-8 md:top-12 space-y-3'id="done">
         <h3 class="font-pt-serif font-normal text-2xl mb-4">
           Done
         </h3>
         <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma" id="done1">
-          <p>Benefit #1</p>
+          <p id="doneText1"></p>
           <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -217,13 +217,13 @@
               <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
           
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Doing</span></a>
+                <a onclick="moveToDiv('done1', 'todo', 'ToDoAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
+                <a onclick="moveToDiv('done1', 'doing', 'DoingAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Doing</span></a>
               </div>
             </div> 
         </div>
-        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma">
-          <p>Memorize the fifty states and their capitals</p>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma" id="done2">
+          <p id="doneText2"></p>
           <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -236,13 +236,13 @@
               <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
           
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Doing</span></a>
+                <a onclick="moveToDiv('done2', 'todo', 'ToDoAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
+                <a onclick="moveToDiv('done2', 'doing', 'DoingAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Doing</span></a>
               </div>
             </div> 
         </div>
-        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma">
-          <p>Benefit #3</p>
+        <div class="flex bg-black rounded-2xl text-white py-3 text-lg justify-between ma" id="done3">
+          <p id="doneText3"></p>
           <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>         
           
             <div x-data="{ dropdownOpen: false }" class="relative">
@@ -255,13 +255,13 @@
               <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 h-full w-full z-10"></div>
           
               <div x-show="dropdownOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20 text-black">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Doing</span></a>
+                <a onclick="moveToDiv('done3', 'todo', 'ToDoAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: To Do</span></a>
+                <a onclick="moveToDiv('done3', 'doing', 'DoingAddButton')" class="block px-4 py-2 text-sm text-gray-800 border-b hover:bg-gray-200"><span class="text-gray-600">Mark as: Doing</span></a>
               </div>
             </div> 
         </div>
 
-        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4">
+        <button class=" border-2 border-solid border-black rounded-xl text-lg py-3 mt-4" id="DoneAddButton">
           Add
         </button>
       </div>
@@ -340,13 +340,6 @@ $("#panel_length").remove();
     </table>
 </div>
 </div>
-
-
-<div class="">
-  <a href="mappa.html" target="_blank"> <p class="growing-underline "> Where are we?</p></a>
-</div>
-
-<div id="text"></div>
 <script src="dist/script.js"></script>
 </body>
 
