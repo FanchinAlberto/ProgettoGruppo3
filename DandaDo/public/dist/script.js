@@ -1,8 +1,15 @@
-//manipolazione dati api
-fetch('https://dummyjson.com/todos')
-.then(res => res.json())
-.then(console.log);
 
+
+//manipolazione dati api
+function fetchRandom(pid) {
+let currentP = document.getElementById(pid);
+fetch('https://dummyjson.com/todos/random')
+.then(res => res.json())
+.then(res => {
+  divProva.innerHTML = res.todo;
+}
+);
+}
 
 //animazione burger-menu
 window.addEventListener("load", function () {
