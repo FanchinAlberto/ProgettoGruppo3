@@ -98934,3 +98934,13 @@ th{
     display: none;
     position:static;
   }
+
+  #map { 
+    height: 1000px; 
+    
+}
+.immagine{
+    width: 70px;
+    height: 70px;
+    margin: auto;
+}
